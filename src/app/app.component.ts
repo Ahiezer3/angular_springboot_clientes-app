@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'clientes-app';
+  curso : String = 'Curso de Angular-Spring Boot';
+  autor : String = 'Abidan Ahiezer Carranza Talabera';
 }

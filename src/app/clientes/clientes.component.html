@@ -1,0 +1,36 @@
+<div class="card" style="width: 100%">
+    <div class="card-body">
+      <h5 class="card-title">Clientes</h5>
+      <p class="card-text">Lista de clientes</p>
+      
+      <div class = "my-2 text-left">
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/form']">Crear cliente</button>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Email</td>
+                <td>Fecha de creación</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
+            </tr>
+        </thead>
+        <tbody *ngIf="clientes?.length>0">
+            <tr *ngFor="let cliente of clientes">
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.apellido | uppercase}}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.fechaCreacion | date:'EEEE dd, MMMM yyyy'}}</td>
+                <td><button role ="button" class = "btn btn-primary" name = "editButton" [routerLink]="['/clientes/form',cliente.id]">Editar</button></td>
+                <td><button role ="button" class = "btn btn-danger" name = "deleteButton" (click)="delete(cliente)">Eliminar</button></td>
+            </tr>
+        </tbody>
+      </table>
+      <app-paginador-nav *ngIf="paginador" [paginador] = "paginador"></app-paginador-nav>
+    </div>
+  </div>

@@ -1,0 +1,11 @@
+<button type="button" class="btn btn-primary my-3" (click)="setHabilitar()">{{habilitarEtiqueta}}</button>
+<div class="card">
+    <div class="card-header">
+        <p>Lista de cursos: </p>
+    </div>
+    <ul class="list-group" *ngIf="habilitar == true">
+        <li class="list-group-iten" *ngFor="let curso of listaCurso">
+            {{curso}}
+        </li>
+    </ul>
+</div>
